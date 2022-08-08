@@ -1,11 +1,17 @@
 <template>
-<div>
-    <div class="grid layoutColumns max-w-[1500px]">
+<div class="relative max-w-[1500px] mx-auto">
+    <div class="grid layoutColumns ">
         <option-column></option-column>
         <streaming-screen></streaming-screen>
-        <user-action-row></user-action-row>
     </div>
-    <modal-content></modal-content>
+    <user-action-row></user-action-row>
+    <vue-final-modal v-model="store.modalOpen"
+         @closed="() => {
+            store.closeModal()
+         }"
+         classes="flex justify-center items-center"> 
+        <modal-content></modal-content>
+    </vue-final-modal>
     </div>
 </template>
 <script>
@@ -14,16 +20,20 @@ import StreamingScreen from '../molecules/StreamingScreen.vue';
 import UserActionRow from '../molecules/UserActionRow.vue';
 import ModalContent from '../molecules/ModalContent.vue';
 import { defineComponent } from 'vue'
+import { useLayoutStore } from '../../store';
 
 export default defineComponent({
-    setup() {
-        
-    },
     components: {
         ModalContent,
         OptionColumn,
         StreamingScreen,
         UserActionRow
+    },
+    setup() {
+        const store = useLayoutStore();
+        return {
+            store
+        }
     }
 })
 </script>

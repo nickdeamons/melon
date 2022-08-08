@@ -7,13 +7,16 @@
    <add-media-source
     :action="handleClick">
     </add-media-source>
+    <media-source></media-source>
   </div>
 </template>
 
 <script lang="ts">
 import UserAction from "../atoms/UserAction.vue"
-import { defineComponent } from "vue"
 import AddMediaSource from "../atoms/AddMediaSource.vue"
+import MediaSource from "../atoms/MediaSource.vue"
+import { defineComponent } from "vue"
+
 import { useLayoutStore } from "../../store"
 
 export default defineComponent({
@@ -24,12 +27,14 @@ export default defineComponent({
         }
     },
     components: {
-        UserAction,
-        AddMediaSource
+        AddMediaSource,
+        MediaSource,
+        UserAction
     },
     methods: {
       handleClick(event:any) {
         event.preventDefault();
+        this.store.openModal()
         console.log('Hi')
       },
       openModal(event:any) {

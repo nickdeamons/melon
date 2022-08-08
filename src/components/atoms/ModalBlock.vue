@@ -4,6 +4,9 @@
     </div>
 </template>
 <script lang="ts">
+/*
+    This is a placeholder div with a slot to handle content flexibly
+*/
 export default {
     setup() {},
 }
