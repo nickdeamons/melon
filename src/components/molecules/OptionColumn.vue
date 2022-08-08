@@ -4,36 +4,38 @@
       :buttonText="'Add Source'" 
       :action="handleClick">
     </user-action>
-    <div 
-      class="bg-[#F5F8FA] h-[100px] mt-5 py-3 flex-col justify-center cursor-pointer"
-      role="button"
-      @click="handleClick"
-      @keydown.enter="handleClick"
-    >
-      <div class="text-4xl text-teal font-bold leading-7">+</div>
-      <div class="font-bold text-md">Add Media Source</div>
-      <div class="text-gray-500 text-sm">Screenshare, Camera</div>
-    </div>
+   <add-media-source
+    :action="handleClick">
+    </add-media-source>
   </div>
 </template>
 
 <script lang="ts">
 import UserAction from "../atoms/UserAction.vue"
 import { defineComponent } from "vue"
-
-const handleClick = (event:any) => {
-  console.log(event)
-}
+import AddMediaSource from "../atoms/AddMediaSource.vue"
+import { useLayoutStore } from "../../store"
 
 export default defineComponent({
     setup() {
-        
+        const store = useLayoutStore();
+        return {
+          store
+        }
     },
     components: {
-        UserAction
+        UserAction,
+        AddMediaSource
     },
     methods: {
-      handleClick
+      handleClick(event:any) {
+        event.preventDefault();
+        console.log('Hi')
+      },
+      openModal(event:any) {
+        event.preventDefault();
+        this.store.openModal()
+      }
     }
 })
 

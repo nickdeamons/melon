@@ -1,10 +1,16 @@
 import { defineStore } from 'pinia'
 
 export const useLayoutStore = defineStore('layout', {
-  state: () => ({ count: 0 }),
+  state: () => ({ type: '', modalOpen: true }),
   actions: {
-    increment() {
-      this.count++
+    setLayoutType(type:string) {
+      this.type = type
     },
+    openModal() {
+      this.modalOpen = true
+    },
+    closeModal() {
+      this.modalOpen = false
+    }
   },
 })
