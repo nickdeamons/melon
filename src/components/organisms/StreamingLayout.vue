@@ -1,5 +1,5 @@
 <template>
-    <div class="grid layoutColumns">
+    <div class="grid layoutColumns max-w-[1500px]">
         <option-column></option-column>
         <streaming-screen></streaming-screen>
     </div>

@@ -1,6 +1,6 @@
 <template>
   <div class="py-8 px-8">
-    <canvas class="aspect-ratio bg-gray-500"></canvas>
+    <div class="aspect-video bg-black w-full "></div>
   </div>
 </template>
 

@@ -9,7 +9,9 @@ export default defineComponent({
 });
 </script>
 <template>
-  <span @click="action" @keydown.enter="action">
+  <span @click="action" @keydown.enter="action"
+    class="py-4 px-2 cursor-pointer inline-block hover:bg-teal hover:text-white w-full font-bold"
+  >
     {{ buttonText }}
   </span>
 </template>
