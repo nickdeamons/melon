@@ -12,7 +12,7 @@
                 store.setCamSize('full')
             }"
             tabindex="0"
-
+            role="button"
             class="block w-[100px] mx-2 cursor-pointer"
              />
        <img :src="webCamOnly80Image"
@@ -21,6 +21,7 @@
                 store.setCamSize('80')
             }"
             tabindex="0"
+            role="button"
             class="block w-[100px] mx-2 cursor-pointer" />
         <img :src="webCamOnly60Image"
             @click="(event) => {
@@ -34,6 +35,7 @@
         <img :src="leftWebCamImage"
             class="block w-[100px] mx-2 cursor-pointer"
             tabindex="0"
+            role="button"
             @click="(event) => {
                 event.preventDefault();
                 store.setLayoutSizes('25-l')
