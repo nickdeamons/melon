@@ -45,6 +45,7 @@ export default defineComponent({
         UserAction
     },
     methods: {
+      /* All functions pass the event object to note their action type */
       handleClick(event:any) {
         event.preventDefault();
         this.store.openModal()

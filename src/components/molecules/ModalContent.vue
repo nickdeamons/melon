@@ -1,6 +1,7 @@
 <template>
   <div class="bg-white p-10 relative block max-w-[600px] mx-auto">
-    <div class="font-bold text-xl mb-10">Add a new media source</div>
+    <div class="font-bold text-xl mb-10" v-if="!(store.screenShare && store.webcamFeed)">Add a new media source</div>
+    <div class="font-bold text-xl mb-10" v-if="store.screenShare && store.webcamFeed">You currently have both sources added.</div>
     <div class=" grid gap-3 grid-cols-2">
         <modal-block 
             class="pointer" 
@@ -85,6 +86,6 @@ export default defineComponent({
     .disabled {
         pointer-events: none;
         cursor: not-allowed;
-        opacity: 0.8;
+        opacity: 0.4;
     }
 </style>

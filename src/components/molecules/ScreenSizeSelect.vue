@@ -6,7 +6,7 @@
   <div v-else >
     <!-- If we are only showing our webcam on screen, present these options  -->
     <div v-if="store.onlyWebcam" class="flex justify-center">
-        <img src="/img/webcam-only_full-screen.png"
+        <img :src="webCamOnlyFullImage"
             @click="(event) => {
                 event.preventDefault();
                 store.setCamSize('full')
@@ -15,14 +15,14 @@
 
             class="block w-[100px] mx-2 cursor-pointer"
              />
-       <img src="/img/webcam-only_80-percent.png" 
+       <img :src="webCamOnly80Image"
             @click="(event) => {
                 event.preventDefault();
                 store.setCamSize('80')
             }"
             tabindex="0"
             class="block w-[100px] mx-2 cursor-pointer" />
-        <img src="/img/webcam-only_60-percent.png"
+        <img :src="webCamOnly60Image"
             @click="(event) => {
                 event.preventDefault();
                 store.setCamSize('60')
@@ -70,6 +70,27 @@ export default defineComponent({
         }
     },
     computed: {
+        webCamOnlyFullImage():string {
+            if (this.store.camSize === 'full') {
+                return '/img/webcam-only_full-screen_selected.png'
+            } else {
+                return '/img/webcam-only_full-screen.png'
+            }
+        },
+        webCamOnly80Image():string {
+            if (this.store.camSize === '80') {
+                return '/img/webcam-only_80-percent_selected.png'
+            } else {
+                return '/img/webcam-only_80-percent.png'
+            }
+        },
+         webCamOnly60Image():string {
+            if (this.store.camSize === '60') {
+                return '/img/webcam-only_60-percent_selected.png'
+            } else {
+                return '/img/webcam-only_60-percent.png'
+            }
+        },
         leftWebCamImage():string {
             if (this.store.webCamAndScreenShare && this.store.multiLayout === '25-l') {
                return '/img/webcam-screenshare_webcam-25-percent-left-align_selected.png'

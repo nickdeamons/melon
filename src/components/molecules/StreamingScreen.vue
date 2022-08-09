@@ -11,7 +11,7 @@
             :class="store.screenSizeClasses"
           >
               <img src="/img/screenshare-image.png" 
-                class="object-cover block img"  
+                class="object-contain block img h-full"  
               />
           </div>
           <div class="img" v-if="store.webCamVisible" 
@@ -43,11 +43,6 @@ export default defineComponent({
     components: {
       ScreenSizeSelect
     },
-    methods: {
-      handleClick(event:any) {
-        console.log(event)
-      }
-    }
 })
 
 </script>
