@@ -6,7 +6,12 @@ module.exports = {
       colors: {
         teal: '#128079',
         offWhite: '#F5F8FA'
-      }
+      },
+      screens: {
+          'tall': { 'raw': '(min-height: 780px)' },
+          // => @media (min-height: 800px) { ... }
+        }
+      
     },
   },
   plugins: [],

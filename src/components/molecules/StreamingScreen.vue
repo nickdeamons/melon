@@ -1,6 +1,6 @@
 <template>
   <div class="py-8 px-8">
-    <div class="aspect-video bg-black w-full relative overflow-hidden max-w-5xl mx-auto mb-3">
+    <div class="aspect-video bg-black w-full relative overflow-hidden max-w-5xl mx-auto mb-8">
         <div 
           class="flex justify-center h-full"
           :class="{
