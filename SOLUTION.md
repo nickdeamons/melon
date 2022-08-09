@@ -30,7 +30,7 @@ The UI images and their states for the screen combinations I believe is somethin
 
 After completing the requirements for the UI states, I went back through the Figma comps and applied finishing touches to the media source components.
 
-## Assignment difficulty
+## Assignment Feedback
 
 *How long did it take you to complete this assignment?* 
 
