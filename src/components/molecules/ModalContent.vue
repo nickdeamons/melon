@@ -6,11 +6,15 @@
             class="pointer" 
             role="button"
             tabindex="0"
+            :class="{'disabled': store.screenShare}"
+            @keydown.enter="(event) => {
+                selectMedia(event, 'screenshare')
+            }"
             @click="(event) => {
                 selectMedia(event, 'screenshare')
             }"
             >
-            <template v-slot:content>
+            <template v-slot:content >
                 <div class="text-lg font-bold " >
                     Screenshare
                 </div>
@@ -22,8 +26,12 @@
         <modal-block 
             class="pointer" 
             role="button"
+            :class="{'disabled': store.webcamFeed}"
             @click="(event) => {
                 selectMedia(event, 'webcam')
+            }"
+            @keydown.enter="(event) => {
+                selectMedia(event, 'webcame')
             }"
         >
             <template v-slot:content>
@@ -42,10 +50,13 @@
 /*
     This is the content holder for the modal contents.
 */
+import {defineComponent} from 'vue';
+// import the generalized modal block
 import ModalBlock from '../atoms/ModalBlock.vue'
 import { useLayoutStore } from '../../store';
-export default {
+export default defineComponent({
     setup() {
+        // pass the store to the component
         const store = useLayoutStore();
         return {
             store
@@ -55,18 +66,25 @@ export default {
     methods: {
         selectMedia(event:any, mediaType:string):void {
             event.preventDefault();
-            console.log('select media', mediaType)
             if(mediaType === 'webcam') {
+                // Show the webcam on the screen
                 this.store.shareWebcam();
+                this.store.closeModal();
             }
             if(mediaType === 'screenshare') {
+                // Share the screen
+                this.store.closeModal();
                 this.store.shareScreen();
             } 
         }
     }
-}
+})
 </script>
 
 <style>
-
+    .disabled {
+        pointer-events: none;
+        cursor: not-allowed;
+        opacity: 0.8;
+    }
 </style>

@@ -16,7 +16,7 @@ export default defineComponent({
   <span 
     @click="(event) => action(event)" 
     @keydown.enter="(event) => action(event)"
-    class="bg-offWhite rounded-[4px] py-4 px-2 cursor-pointer inline-block hover:bg-teal hover:text-white w-full font-bold"
+    class="bg-offWhite rounded-[4px] py-4 px-2 cursor-pointer block hover:bg-teal hover:text-white w-full font-bold"
   >
     {{ buttonText }}
   </span>
