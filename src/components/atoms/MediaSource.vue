@@ -6,24 +6,21 @@
       <div class="absolute z-2 top-0 left-0 ">
         <slot name="image"></slot>
       </div>
-      <div
-        @click="show"
-        @keydown.enter="show"
-        class="bg-teal hide text-white py-3 px-4 z-40 absolute m-auto left-0 right-0 font-bold">
-          Show on Stream
+      <div class="absolute z-50 bottom-0 left-0 text-white text-xs pl-1 leading-5">
+        <slot name="sourceName"></slot>
       </div>
       <div
         @click="hide"
         @keydown.enter="hide"
         v-if="showOnStream"
-        class="bg-white hide text-red-700 py-3 px-4 z-40 absolute m-auto left-0 right-0 font-bold">
+        class="bg-white toggle text-red-700 py-3 px-4 z-40 absolute m-auto left-0 right-0 font-bold">
           Hide on Stream
         </div>
         <div
         v-if="!showOnStream"
         @click="show"
         @keydown.enter="show"
-        class="bg-teal hide text-white py-3 px-4 z-40 absolute m-auto left-0 right-0 font-bold">
+        class="bg-teal toggle text-white py-3 px-4 z-40 absolute m-auto left-0 right-0 font-bold">
           Show on Stream
         </div>
     </div>
@@ -77,16 +74,23 @@ export default defineComponent({
 });
 </script>
 <style scoped>
-    .mediaSource .hide{
+  .mediaSource:before {
+    display: block;
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    z-index: 3;
+    bottom: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%); 
+  }
+    .mediaSource .toggle{
         display: none;
     }
-    .mediaSource:hover .hide{
+    .mediaSource:hover .toggle{
         display: block;
+        top: 50%;
+        transform: translateY(-50%);
     }
-    .mediaSource .show {
-      display: none;
-    }
-    .mediaSource:hover .show{
-        display: block;
-    }
+    
 </style>

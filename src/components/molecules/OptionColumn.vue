@@ -8,10 +8,16 @@
       <template v-slot:image>
         <img src="/img/screenshare-image.png" class="block w-full" />
       </template>
+      <template v-slot:sourceName>
+        My Screenshare Feed
+      </template>
     </media-source>
     <media-source v-if="store.webcamFeed" :mediaType="'webcam'">
       <template v-slot:image>
         <img src="/img/webcam-image.png" class="block w-full" />
+      </template>
+      <template v-slot:sourceName>
+        My Video Feed
       </template>
     </media-source>
     <div class="mt-4">
