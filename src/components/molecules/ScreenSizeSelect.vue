@@ -70,6 +70,10 @@ export default defineComponent({
         }
     },
     computed: {
+        /* Computed properties 
+            for the images generated from the store's status 
+            This is here to clean up the upper markup from all of these checks on the state
+        */
         webCamOnlyFullImage():string {
             if (this.store.camSize === 'full') {
                 return '/img/webcam-only_full-screen_selected.png'

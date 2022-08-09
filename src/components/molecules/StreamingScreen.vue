@@ -7,14 +7,16 @@
             'flex-row align-center items-center': store.onlyWebcam
           }"
         >
-          <div class="img" v-if="store.screenShareVisible" 
+          <div class="img" 
+            v-if="store.screenShareVisible" 
             :class="store.screenSizeClasses"
           >
               <img src="/img/screenshare-image.png" 
                 class="object-contain block img h-full"  
               />
           </div>
-          <div class="img" v-if="store.webCamVisible" 
+          <div class="img" 
+            v-if="store.webCamVisible" 
             :class="store.camSizeClasses">
               <img src="/img/webcam-image.png"  
                 class="block w-full object-cover img" 
@@ -48,6 +50,6 @@ export default defineComponent({
 </script>
 <style scoped>
   .img {
-    transition: all 0.55s;
+    transition: all 0.75s;
   }
 </style>
