@@ -1,9 +1,9 @@
 <template>
      <div 
-      class="bg-[#F5F8FA] h-[100px] mt-5 py-3 flex-col justify-center cursor-pointer"
+      class="bg-offWhite h-[100px] mt-5 py-3 flex-col justify-center cursor-pointer"
       role="button"
-      @click="action"
-      @keydown.enter="action"
+      @click="(event) => action(event)"
+      @keydown.enter="(event) => action(event)"
     >
       <div class="text-4xl text-teal font-bold leading-7">+</div>
       <div class="font-bold text-md">Add Media Source</div>
@@ -14,7 +14,11 @@
 import { defineComponent } from "vue";
 export default defineComponent({
   props: {
-    action: Function,
+    action: {
+      type: Function,
+      default: () => {},
+      required: true,
+    }
   },
   setup() {},
 });

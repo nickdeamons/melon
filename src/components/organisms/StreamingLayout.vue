@@ -5,7 +5,9 @@
         <streaming-screen></streaming-screen>
     </div>
     <user-action-row></user-action-row>
-    <vue-final-modal v-model="store.modalOpen"
+    <vue-final-modal 
+        v-model="store.modalOpen"
+        :overlay-style="{backgroundColor :'rgba(255, 255, 255, 0.4)'}"
          @closed="() => {
             store.closeModal()
          }"
