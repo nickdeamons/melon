@@ -37,7 +37,7 @@ export const useLayoutStore = defineStore('layout', {
     },
     screenSizeClasses():String {
       if (this.multiLayout === '66-33') {
-        return 'w-2/3'
+        return 'w-2/3 my-auto h-4/5'
       }
       else {
         return 'w-full'
@@ -48,12 +48,12 @@ export const useLayoutStore = defineStore('layout', {
         return 'w-full object-cover'
       }
       if (this.multiLayout === '25-r') {
-        return 'absolute right-3 bottom-3 w-1/4'
+        return 'absolute right-3 bottom-3 h-1/5 aspect-video w-auto overflow-hidden'
       }
       if (this.multiLayout === '25-l') {
-        return 'absolute left-3 bottom-3 w-1/4'
+        return 'absolute left-3 bottom-3 h-1/5 aspect-video w-auto overflow-hidden'
       } else {
-        return 'w-1/3'
+        return 'w-1/3 h-4/5 my-auto'
       }
     },
     camOnlyClasses():String {
@@ -66,7 +66,7 @@ export const useLayoutStore = defineStore('layout', {
         if(this.camSize === 'full' && this.multiLayout === '66-33') {
           return 'h-full'
         } else {
-          return 'w-full mx-auto'
+          return 'mx-auto'
         }
       }
     },

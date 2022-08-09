@@ -12,7 +12,7 @@
             :class="store.screenSizeClasses"
           >
               <img src="/img/screenshare-image.png" 
-                class="object-contain block img h-full"  
+                class=" block img "  
               />
           </div>
           <div class="img" 
