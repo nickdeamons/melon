@@ -10,7 +10,6 @@ export const useLayoutStore = defineStore('layout', {
     screenShareVisible: false,
     multiLayout: 'full',
     camSize: 'full',
-    // layout options: 50-50, 66-33, small-video
   }),
   getters: {
     onlyWebcam():boolean {
@@ -22,6 +21,7 @@ export const useLayoutStore = defineStore('layout', {
     webCamAndScreenShare():boolean {
       return this.screenShareVisible && this.webCamVisible
     },
+    /* These computed properties may be best in a style store that reads this store */
     layoutClasses():String {
       if (this.multiLayout === '25-l') {
         return ''
@@ -76,7 +76,7 @@ export const useLayoutStore = defineStore('layout', {
       this.type = type
     },
     /* These functions control the state of the modal window 
-      Allowing users to add or remove sources to the stream */
+      Allowing users to add sources to the stream */
     openModal() {
       this.modalOpen = true
     },
@@ -84,7 +84,9 @@ export const useLayoutStore = defineStore('layout', {
       this.modalOpen = false
     },
     /* These functions control the state of the webcam
-      Allowing users to add or remove sources to the stream */
+      Allowing users to add or remove sources to the stream 
+      Media sources are addable to the UI, but not automatically added to the screen  
+    */
     shareWebcam() {
       this.webcamFeed = true
     },
@@ -98,15 +100,18 @@ export const useLayoutStore = defineStore('layout', {
       this.screenShare = true
     },
     shareScreenVis() {
+      // Set defaults for the layouts to size down the webcam feed
       this.camSize = 'full'
       this.multiLayout = '25-l'
       this.screenShareVisible = true
     },
     hideScreen() {
+      // Set defaults for the layouts to refill the screen when reshown
       this.setLayoutSizes('full')
       this.multiLayout = 'full'
       this.screenShareVisible = false
     },
+    // Modify the state with the strings given from click actions in the UI
     setCamSize(camSize:string) {
       this.camSize = camSize
     },
